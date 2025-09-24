@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Digital & Marketing Agency</title>
+  <meta name="description" content="Маркетинговые и digital-услуги: сайты, реклама, SEO, SMM, дизайн. Увеличим продажи и узнаваемость бренда." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <!-- AOS (Animate On Scroll) -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Overlay Mobile Nav -->
+  <div class="overlay" id="overlay">
+    <button class="overlay__close" id="overlayClose" aria-label="Закрыть меню">✕</button>
+    <nav class="overlay__content">
+      <a href="#hero" class="overlay__link">Главная</a>
+      <a href="#about" class="overlay__link">О нас</a>
+      <a href="#services" class="overlay__link">Услуги</a>
+      <a href="#cases" class="overlay__link">Кейсы</a>
+      <a href="#reviews" class="overlay__link">Отзывы</a>
+      <a href="#contact" class="overlay__link">Контакты</a>
+    </nav>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container header__inner">
+      <a href="#" class="logo" aria-label="Digital & Marketing Agency">
+        <span class="logo__dot"></span>DM Agency
+      </a>
+      <nav class="nav">
+        <a href="#about">О нас</a>
+        <a href="#services">Услуги</a>
+        <a href="#cases">Кейсы</a>
+        <a href="#reviews">Отзывы</a>
+        <a href="#contact">Контакты</a>
+      </nav>
+      <button id="burger" class="burger" aria-label="Открыть меню" aria-controls="overlay" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <div class="hero__bg" aria-hidden="true">
+      <div class="hero__gradient"></div>
+      <video class="hero__video" autoplay muted loop playsinline>
+        <source src="https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="container hero__content" data-aos="fade-up">
+      <h1>Усилим ваш бизнес через <span class="accent">digital‑маркетинг</span></h1>
+      <p>Создаём сайты, настраиваем рекламу, продвигаем в поиске, проектируем бренды. Чётко, быстро, с измеримым результатом.</p>
+      <div class="hero__cta">
+        <a href="#contact" class="btn btn--primary">Заказать консультацию</a>
+        <a href="#services" class="btn btn--ghost">Узнать услуги</a>
+      </div>
+      <div class="hero__badges">
+        <div class="badge">50+ реализованных проектов</div>
+        <div class="badge">ROI‑подход</div>
+        <div class="badge">Работа по договору</div>
+      </div>
+    </div>
+    <a href="#about" class="scroll-down" aria-label="Скролл вниз">▼</a>
+  </section>
+
+  <!-- About -->
+  <section class="section" id="about">
+    <div class="container grid-2">
+      <div data-aos="fade-right">
+        <h2>Кто мы</h2>
+        <p>Команда маркетологов, дизайнеров и разработчиков, которая превращает идеи в прибыльные digital‑решения. Работаем прозрачно: KPI, отчётность и контроль бюджета.</p>
+        <div class="facts">
+          <div class="fact"><strong>7+</strong><span>лет на рынке</span></div>
+          <div class="fact"><strong>120+</strong><span>клиентов</span></div>
+          <div class="fact"><strong>18%</strong><span>средний рост конверсии</span></div>
+          <div class="fact"><strong>3</strong><span>недели до запуска</span></div>
+        </div>
+      </div>
+      <div class="about__card" data-aos="fade-left">
+        <div class="about__img"></div>
+        <div class="about__note">Исследуем → проектируем → запускаем → масштабируем</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="section section--alt" id="services">
+    <div class="container">
+      <h2 data-aos="fade-up">Услуги</h2>
+      <div class="cards">
+        <article class="card" data-aos="fade-up" data-aos-delay="50">
+          <div class="card__icon">🖥️</div>
+          <h3>Разработка сайтов</h3>
+          <p>Лендинги, корпоративные сайты, e‑commerce. Производительность, SEO‑семантика и конверсия.</p>
+          <ul class="list">
+            <li>UX/UI прототип</li>
+            <li>Адаптив и скорость</li>
+            <li>CMS/Headless</li>
+          </ul>
+        </article>
+        <article class="card" data-aos="fade-up" data-aos-delay="100">
+          <div class="card__icon">🎯</div>
+          <h3>Таргет и контекст</h3>
+          <p>Строим воронки и кампании с оптимизацией по целям. A/B‑тесты и сквозная аналитика.</p>
+          <ul class="list">
+            <li>Google/Meta/TikTok</li>
+            <li>Трекинг конверсий</li>
+            <li>Авто‑правила</li>
+          </ul>
+        </article>
+        <article class="card" data-aos="fade-up" data-aos-delay="150">
+          <div class="card__icon">🔎</div>
+          <h3>SEO‑продвижение</h3>
+          <p>Технический аудит, контент‑ядро, линкбилдинг. Рост органического трафика.</p>
+          <ul class="list">
+            <li>Core Web Vitals</li>
+            <li>Контент‑план</li>
+            <li>Отчёты по позициям</li>
+          </ul>
+        </article>
+        <article class="card" data-aos="fade-up" data-aos-delay="200">
+          <div class="card__icon">🎨</div>
+          <h3>Брендинг и дизайн</h3>
+          <p>Айдентика, креативы для SMM и перформанса, презентации и посадочные.</p>
+          <ul class="list">
+            <li>Гайдлайны и кит</li>
+            <li>Крео‑производство</li>
+            <li>Motion‑графика</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cases / Portfolio -->
+  <section class="section" id="cases">
+    <div class="container">
+      <h2 data-aos="fade-up">Кейсы</h2>
+      <div class="slider" data-aos="fade-up">
+        <div class="slides" id="slides">
+          <div class="slide">
+            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1600&auto=format&fit=crop" alt="Кейс 1">
+            <div class="slide__info">
+              <h4>E‑commerce</h4>
+              <p>+42% к выручке за 3 месяца за счёт CRO и перформанс‑каналов.</p>
+            </div>
+          </div>
+          <div class="slide">
+            <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=1600&auto=format&fit=crop" alt="Кейс 2">
+            <div class="slide__info">
+              <h4>B2B leadgen</h4>
+              <p>Снижение CPL на 31% благодаря оптимизации связок и посадочных.</p>
+            </div>
+          </div>
+          <div class="slide">
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1600&auto=format&fit=crop" alt="Кейс 3">
+            <div class="slide__info">
+              <h4>Local services</h4>
+              <p>Рост конверсии на лендинге с 2.1% до 5.6% после редизайна.</p>
+            </div>
+          </div>
+        </div>
+        <button class="slider__btn slider__btn--prev" id="prev" aria-label="Предыдущий слайд">‹</button>
+        <button class="slider__btn slider__btn--next" id="next" aria-label="Следующий слайд">›</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section class="section section--alt" id="reviews">
+    <div class="container">
+      <h2 data-aos="fade-up">Отзывы</h2>
+      <div class="reviews">
+        <article class="review" data-aos="fade-up" data-aos-delay="50">
+          <div class="review__avatar">AA</div>
+          <div>
+            <h4>Айдана А.</h4>
+            <p>«Чёткие сроки, понятная отчётность и ощутимый прирост лидов. Рекомендуем!»</p>
+          </div>
+        </article>
+        <article class="review" data-aos="fade-up" data-aos-delay="100">
+          <div class="review__avatar">BM</div>
+          <div>
+            <h4>Бекзат М.</h4>
+            <p>«Переделали сайт и рекламу — CPL снизился почти на треть. Команда на связи 24/7.»</p>
+          </div>
+        </article>
+        <article class="review" data-aos="fade-up" data-aos-delay="150">
+          <div class="review__avatar">KS</div>
+          <div>
+            <h4>Карина С.</h4>
+            <p>«Настроили SEO и контент — стабильный рост органики без лишних затрат.»</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA + Contact -->
+  <section class="section" id="contact">
+    <div class="container grid-2">
+      <div data-aos="fade-right">
+        <h2>Готовы к росту?</h2>
+        <p>Оставьте заявку — вернёмся с планом на 90 дней и сметой.</p>
+        <ul class="checklist">
+          <li>Разберём текущие каналы и сайт</li>
+          <li>Соберём гипотезы и KPI</li>
+          <li>Запустим за 2–3 недели</li>
+        </ul>
+      </div>
+      <form class="form" action="#" method="post" data-aos="fade-left" onsubmit="return false;">
+        <div class="form__row">
+          <label>Имя<input type="text" name="name" required></label>
+          <label>Телефон<input type="tel" name="phone" required></label>
+        </div>
+        <div class="form__row">
+          <label>Email<input type="email" name="email" required></label>
+          <label>Компания<input type="text" name="company"></label>
+        </div>
+        <label>Сообщение<textarea name="message" rows="4" placeholder="Опишите задачу..."></textarea></label>
+        <button class="btn btn--primary" type="submit">Отправить</button>
+        <p class="form__note">Нажимая «Отправить», вы соглашаетесь с политикой конфиденциальности.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>© <span id="year"></span> DM Agency. Все права защищены.</p>
+      <div class="socials">
+        <a href="#" aria-label="Instagram">Instagram</a>
+        <a href="#" aria-label="Facebook">Facebook</a>
+        <a href="#" aria-label="LinkedIn">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
