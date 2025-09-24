@@ -1,35 +1,51 @@
 // AOS init
-AOS.init({
-  duration: 700,
-  easing: 'ease-out-quart',
-  once: true
-});
+AOS.init({ duration: 650, easing: 'ease-out-quart', once: true });
 
-// Burger & overlay
+// Burger & overlay (robust)
 const burger = document.getElementById('burger');
 const overlay = document.getElementById('overlay');
 const overlayClose = document.getElementById('overlayClose');
 const overlayLinks = document.querySelectorAll('.overlay__link');
 
+function lockScroll(lock){
+  if(lock){
+    document.documentElement.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden';
+  } else {
+    document.documentElement.style.overflow = '';
+    document.body.style.overflow = '';
+  }
+}
+
 function openMenu(){
   overlay.classList.add('active');
+  overlay.setAttribute('aria-hidden','false');
   burger.setAttribute('aria-expanded','true');
-  document.body.style.overflow = 'hidden';
+  lockScroll(true);
 }
 function closeMenu(){
   overlay.classList.remove('active');
+  overlay.setAttribute('aria-hidden','true');
   burger.setAttribute('aria-expanded','false');
-  document.body.style.overflow = '';
+  lockScroll(false);
 }
 
 burger.addEventListener('click', openMenu);
 overlayClose.addEventListener('click', closeMenu);
 overlayLinks.forEach(l => l.addEventListener('click', closeMenu));
 
+// Close on Escape and outside click
+document.addEventListener('keydown', (e)=>{
+  if(e.key === 'Escape' && overlay.classList.contains('active')) closeMenu();
+});
+overlay.addEventListener('click', (e)=>{
+  if(e.target === overlay) closeMenu();
+});
+
 // Year
 document.getElementById('year').textContent = new Date().getFullYear();
 
-// Smooth anchor scroll (native behavior supported by CSS in modern browsers; fallback here)
+// Smooth anchor scroll
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function(e){
     const id = this.getAttribute('href');
@@ -40,7 +56,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// Simple slider
+// Slider
 const slides = document.getElementById('slides');
 const prev = document.getElementById('prev');
 const next = document.getElementById('next');
@@ -51,14 +67,11 @@ function showSlide(i){
   index = (i + total) % total;
   slides.style.transform = `translateX(-${index * 100}%)`;
 }
-
 prev.addEventListener('click', ()=> showSlide(index-1));
 next.addEventListener('click', ()=> showSlide(index+1));
+setInterval(()=> showSlide(index+1), 7000);
 
-// Auto-rotate slides
-setInterval(()=> showSlide(index+1), 6000);
-
-// Fake form submit
+// Form faux submit
 document.querySelector('.form')?.addEventListener('submit', (e)=>{
   e.preventDefault();
   alert('Заявка отправлена! Мы свяжемся с вами в ближайшее время.');
