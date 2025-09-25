@@ -74,6 +74,7 @@ header{
 .steps-visual .image-stack img.active{opacity:1; transform:scale(1)}
 
 /* Hide desktop grid on small screens, show mobile block */
+.steps-mobile-vertical{display:none;}
 .steps-mobile-vertical{
     scroll-snap-stop: always;display:none;}
 @media (max-width: 767px){
@@ -146,27 +147,113 @@ small.muted{color:var(--muted)}
 }
 footer{padding:24px 0 40px;color:var(--muted);font-size:14px}
 
-
 /* Align #steps under sticky header on mobile */
 @media (max-width: 767px){
   #steps{ scroll-margin-top: calc(var(--header-h, 56px) + 8px); }
 }
 
-
 /* Mobile first visual under heading (visible only on mobile) */
-.mobile-first-visual{ display:none; }
+
 @media (max-width: 767px){
   #steps h2{ margin-bottom: 6px; }
   #steps .lead{ margin-top: 2px; margin-bottom: 8px; }
-  .mobile-first-visual{
-    display:block;
-    height:42svh;
-    border-radius:16px;
-    overflow:hidden;
+  
+  
+  
+}
+
+/* === Mobile simple list (no animation) === */
+.steps-mobile-simple{ display:none; }
+@media (max-width: 767px){
+  .steps-grid{ display:none; }
+  .steps-mobile-simple{ display:block; }
+  /* keep header tweaks and CTA sizing from previous rules */
+  .mstep{
+    background: var(--card);
     border:1px solid rgba(255,255,255,.06);
-    background:#0d1117;
-    margin-bottom: 10px;
+    border-radius: 14px;
+    overflow:hidden;
+    margin-bottom: 14px;
   }
-  .mobile-first-visual img{ width:100%; height:100%; object-fit:cover; }
-  .mobile-first-visual.hidden{ display:none !important; }
+  .mstep-visual img{
+    width:100%; height: auto; display:block; object-fit:cover;
+  }
+  .mstep-content{
+    padding: 14px 16px;
+  }
+  .mstep-content h3{ margin:.2rem 0; }
+  .mstep-content p{ color:var(--muted); margin:.3rem 0; }
+}
+
+
+/* === Desktop-only step reveal animations === */
+@media (min-width: 768px){
+  /* Left column items: enter from left */
+  .steps-grid .step-item{
+    opacity: 0;
+    transform: translateX(-18px);
+    transition: opacity .45s ease, transform .55s cubic-bezier(.22,.61,.36,1);
+    will-change: opacity, transform;
+  }
+  .steps-grid .step-item.is-active{
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* Right sticky image: enter from right */
+  .steps-visual .image-stack img{
+    opacity: 0;
+    transform: translateX(22px) scale(1.02);
+    transition: opacity .45s ease, transform .6s cubic-bezier(.22,.61,.36,1);
+    will-change: opacity, transform;
+  }
+  .steps-visual .image-stack img.active{
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .steps-grid .step-item,
+  .steps-visual .image-stack img{
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+
+/* === Mobile simple list enter animations (no impact on desktop) === */
+@media (max-width: 767px){
+  .steps-mobile-simple .mstep-visual,
+  .steps-mobile-simple .mstep-content{
+    opacity: 0;
+    will-change: transform, opacity;
+  }
+  .steps-mobile-simple .mstep-visual{
+    transform: translateX(28px); /* from right */
+    transition: transform .48s ease, opacity .48s ease;
+  }
+  .steps-mobile-simple .mstep-content{
+    transform: translateX(-28px); /* from left */
+    transition: transform .48s ease, opacity .48s ease;
+  }
+  .steps-mobile-simple .mstep.in-view .mstep-visual,
+  .steps-mobile-simple .mstep.in-view .mstep-content{
+    transform: translateX(0);
+    opacity: 1;
+  }
+  /* slight, pleasing stagger */
+  .steps-mobile-simple .mstep.in-view .mstep-visual{ transition-delay: .06s; }
+  .steps-mobile-simple .mstep.in-view .mstep-content{ transition-delay: 0s; }
+
+  /* respect reduced motion */
+  @media (prefers-reduced-motion: reduce){
+    .steps-mobile-simple .mstep-visual,
+    .steps-mobile-simple .mstep-content{
+      transition: none !important;
+      transform: none !important;
+      opacity: 1 !important;
+    }
+  }
 }
